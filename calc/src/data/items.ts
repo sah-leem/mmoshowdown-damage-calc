@@ -292,6 +292,10 @@ const BW = DPP.concat([
   'Shock Drive',
   'Steel Gem',
   'Water Gem',
+  'Assault Vest',
+  'Clear Amulet',
+  'Covert Cloak',
+  'Heavy-Duty Boots',
 ]);
 
 const GEN_6_MEGA_STONES: {[item: string]: {[megaEvolves: string]: string}} = {
@@ -787,7 +791,7 @@ class Item implements I.Item {
     if (berry) {
       this.isBerry = true;
       this.naturalGift = {
-        basePower: gen < 6 ? berry.p - 20 : berry.p,
+        basePower: gen < 5 ? berry.p - 20 : berry.p,
         type: berry.t,
       };
     }

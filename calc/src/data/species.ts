@@ -5122,6 +5122,65 @@ const BW: {[name: string]: SpeciesData} = extend(true, {}, DPP, BW_PATCH);
 removeAttr(BW, 'Pichu', 'otherFormes');
 delete BW['Pichu-Spiky-eared'];
 
+const POKEMMO_SPECIES_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
+  'Alakazam': {bs: {hp:55,at:50,df:45,sa:135,sd:95,sp:120}},
+  'Ampharos': {bs: {hp:90,at:75,df:85,sa:115,sd:90,sp:55}},
+  'Arbok': {bs: {hp:60,at:95,df:69,sa:65,sd:79,sp:80}},
+  'Ariados': {bs: {hp:70,at:90,df:70,sa:60,sd:70,sp:40}},
+  'Azumarill': {bs: {hp:100,at:50,df:80,sa:60,sd:80,sp:50}},
+  'Beartic': {bs: {hp:95,at:130,df:80,sa:70,sd:80,sp:50}},
+  'Beautifly': {bs: {hp:60,at:70,df:50,sa:100,sd:50,sp:65}},
+  'Beedrill': {bs: {hp:65,at:90,df:40,sa:45,sd:80,sp:75}},
+  'Bellossom': {bs: {hp:75,at:80,df:95,sa:90,sd:100,sp:50}},
+  'Butterfree': {bs: {hp:60,at:45,df:50,sa:90,sd:80,sp:70}},
+  'Chimecho': {bs: {hp:75,at:50,df:80,sa:95,sd:90,sp:65}},
+  'Clefable': {bs: {hp:95,at:70,df:73,sa:95,sd:90,sp:60}},
+  'Corsola': {bs: {hp:65,at:55,df:95,sa:65,sd:95,sp:35}},
+  'Cresselia': {bs: {hp:120,at:70,df:110,sa:75,sd:120,sp:85}},
+  'Crustle': {bs: {hp:70,at:105,df:125,sa:65,sd:75,sp:45}},
+  'Cryogonal': {bs: {hp:80,at:50,df:50,sa:95,sd:135,sp:105}},
+  'Delcatty': {bs: {hp:70,at:65,df:65,sa:55,sd:55,sp:90}},
+  'Dodrio': {bs: {hp:60,at:110,df:70,sa:60,sd:60,sp:110}},
+  'Dugtrio': {bs: {hp:35,at:100,df:50,sa:50,sd:70,sp:120}},
+  'Electrode': {bs: {hp:60,at:50,df:70,sa:80,sd:80,sp:150}},
+  'Exeggutor': {bs: {hp:95,at:95,df:85,sa:125,sd:75,sp:55}},
+  'Exploud': {bs: {hp:104,at:91,df:63,sa:91,sd:73,sp:68}},
+  "Farfetch’d": {bs: {hp:52,at:90,df:55,sa:58,sd:62,sp:60}},
+  'Gigalith': {bs: {hp:85,at:135,df:130,sa:60,sd:80,sp:25}},
+  'Golem': {bs: {hp:80,at:120,df:130,sa:55,sd:65,sp:45}},
+  'Illumise': {bs: {hp:65,at:47,df:75,sa:73,sd:85,sp:85}},
+  'Jumpluff': {bs: {hp:75,at:55,df:70,sa:55,sd:95,sp:110}},
+  'Krookodile': {bs: {hp:95,at:117,df:80,sa:65,sd:70,sp:92}},
+  'Leavanny': {bs: {hp:75,at:103,df:80,sa:70,sd:80,sp:92}},
+  'Lunatone': {bs: {hp:90,at:55,df:65,sa:95,sd:85,sp:70}},
+  'Magcargo': {bs: {hp:60,at:50,df:120,sa:90,sd:80,sp:30}},
+  'Mantine': {bs: {hp:85,at:40,df:70,sa:80,sd:140,sp:70}},
+  'Masquerain': {bs: {hp:70,at:60,df:62,sa:100,sd:82,sp:80}},
+  'Nidoking': {bs: {hp:81,at:102,df:77,sa:85,sd:75,sp:85}},
+  'Nidoqueen': {bs: {hp:90,at:92,df:87,sa:75,sd:85,sp:76}},
+  'Noctowl': {bs: {hp:100,at:50,df:50,sa:86,sd:96,sp:70}},
+  'Pelipper': {bs: {hp:60,at:50,df:100,sa:95,sd:70,sp:65}},
+  'Pidgeot': {bs: {hp:83,at:80,df:75,sa:70,sd:70,sp:101}},
+  'Pikachu': {bs: {hp:35,at:55,df:40,sa:50,sd:50,sp:90}},
+  'Poliwrath': {bs: {hp:90,at:95,df:95,sa:70,sd:90,sp:70}},
+  'Qwilfish': {bs: {hp:65,at:95,df:85,sa:55,sd:55,sp:85}},
+  'Raichu': {bs: {hp:60,at:90,df:55,sa:90,sd:80,sp:110}},
+  'Roserade': {bs: {hp:60,at:70,df:65,sa:125,sd:105,sp:90}},
+  'Scolipede': {bs: {hp:60,at:100,df:89,sa:55,sd:69,sp:112}},
+  'Seismitoad': {bs: {hp:105,at:95,df:75,sa:85,sd:75,sp:74}},
+  'Solrock': {bs: {hp:90,at:95,df:85,sa:55,sd:65,sp:70}},
+  'Staraptor': {bs: {hp:85,at:120,df:70,sa:50,sd:60,sp:100}},
+  'Stoutland': {bs: {hp:85,at:110,df:90,sa:45,sd:90,sp:80}},
+  'Swellow': {bs: {hp:60,at:85,df:60,sa:75,sd:50,sp:125}},
+  'Unfezant': {bs: {hp:80,at:115,df:80,sa:65,sd:55,sp:93}},
+  'Victreebel': {bs: {hp:80,at:105,df:65,sa:100,sd:70,sp:70}},
+  'Vileplume': {bs: {hp:75,at:80,df:85,sa:110,sd:90,sp:50}},
+  'Volbeat': {bs: {hp:65,at:73,df:75,sa:47,sd:85,sp:85}},
+  'Wigglytuff': {bs: {hp:140,at:70,df:45,sa:85,sd:50,sp:45}},
+  'Woobat': {bs: {hp:65,at:45,df:43,sa:55,sd:43,sp:72}},
+};
+const BW_FINAL: {[name: string]: SpeciesData} = extend(true, {}, BW, POKEMMO_SPECIES_PATCH);
+
 const XY_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   Abomasnow: {otherFormes: ['Abomasnow-Mega']},
   Absol: {otherFormes: ['Absol-Mega']},
@@ -11006,7 +11065,7 @@ removeAttr(CHAMPIONS, 'Salazzle', 'otherFormes');
 removeAttr(CHAMPIONS, 'Sandaconda', 'otherFormes');
 removeAttr(CHAMPIONS, 'Snorlax', 'otherFormes');
 
-export const SPECIES = [CHAMPIONS, RBY, GSC, ADV, DPP, BW, XY, SM, SS, SV];
+export const SPECIES = [CHAMPIONS, RBY, GSC, ADV, DPP, BW_FINAL, XY, SM, SS, SV];
 
 export class Species implements I.Species {
   private readonly gen: I.GenerationNum;

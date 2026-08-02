@@ -4,9 +4,21 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Pok&eacute;mon Damage Calculator</title>
-    <link rel="icon" type="image/x-icon" href="./img/favicon.png">
+    <title>PokeMMO Damage Calculator</title>
+    <meta name="description" content="PokeMMO Damage Calculator - Calculate battle damage for PokeMMO competitive play with accurate mechanics, updated base powers, and PokeMMO-specific data." />
+    <meta property="og:title" content="PokeMMO Damage Calculator" />
+    <meta property="og:description" content="Calculate battle damage for PokeMMO competitive play with accurate mechanics and PokeMMO-specific data." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calc.mmoshowdown.cc/" />
+    <meta property="og:image" content="https://mmoshowdown.cc/pokemonshowdownbeta.png" />
+    <meta property="og:site_name" content="MMO Showdown" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="PokeMMO Damage Calculator" />
+    <meta name="twitter:description" content="Calculate battle damage for PokeMMO competitive play." />
+    <meta name="twitter:image" content="https://mmoshowdown.cc/pokemonshowdownbeta.png" />
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
     <link type="text/css" rel="stylesheet" href="./js/vendor/select2/select2.css" />
+    <link type="text/css" rel="stylesheet" href="./css/mmoshowdown-nav.css?" />
     <link type="text/css" rel="stylesheet" href="./css/main.css?" />
     <link type="text/css" rel="stylesheet" href="./css/vendor/bootstrap.css" />
     <link type="text/css" rel="stylesheet" href="./css/dark-theme.css?" id="dark-theme-styles">
@@ -38,14 +50,19 @@
 <body class="dark-theme">
 
 <header>
-    <div class="nav-wrapper"><ul class="nav">
-        <li><a class="button nav-first" href="//pokemonshowdown.com/"><img src="./img/pokemonshowdownbeta.png" srcset="./img/pokemonshowdownbeta.png 1x, ./img/pokemonshowdownbeta@2x.png 2x" alt="Pok&eacute;mon Showdown" width="146" height="44" /> Home</a></li>
-        <li><a class="button" href="//pokemonshowdown.com/dex/">Pok&eacute;dex</a></li>
-        <li><a class="button" href="//replay.pokemonshowdown.com/">Replay</a></li>
-        <li><a class="button purplebutton" href="//smogon.com/dex/" target="_blank">Strategy</a></li>
-        <li><a class="button nav-last purplebutton" href="//smogon.com/forums/" target="_blank">Forum</a></li>
-        <li><a class="button greenbutton nav-first nav-last" href="//play.pokemonshowdown.com/">Play</a></li>
-    </ul></div>
+    <div class="nav-bar">
+        <a href="//mmoshowdown.cc/"><img src="//mmoshowdown.cc/pokemonshowdownbeta.png" srcset="//mmoshowdown.cc/pokemonshowdownbeta.png 1x, //mmoshowdown.cc/pokemonshowdownbeta@2x.png 2x" alt="MMO Showdown" width="146" height="44" /></a>
+        <ul class="nav">
+            <li><a class="button" href="https://mmoshowdown.com/">Home</a></li>
+            <li><a class="button" href="//dex.mmoshowdown.cc/">Pok&eacute;dex</a></li>
+            <li><a class="button" href="//replay.mmoshowdown.cc/">Replays</a></li>
+            <li><a class="button" href="//teams.mmoshowdown.cc/">Teams</a></li>
+            <li><a class="button cur" href="https://calc.mmoshowdown.cc/">Calculator</a></li>
+            <li><a class="button" href="https://forums.pokemmo.com/" target="_blank">Forums</a></li>
+            <li><a class="button purplebutton" href="https://discord.gg/tWXGCtud4m" target="_blank">Discord</a></li>
+            <li><a class="button greenbutton" href="https://mmoshowdown.cc/">Play</a></li>
+        </ul>
+    </div>
 </header>
 
 <!-- START WRAPPER -->
@@ -1681,7 +1698,7 @@
 </div>
 <!-- END WRAPPER -->
 
-<div class="credits">Created by Honko; maintained by Austin, Kris, <a href="https://github.com/smogon/damage-calc/contributors" class="links-lighten" target="_blank">and others</a>.
+<div class="credits">Originally created by <a href="https://github.com/Honko" class="links-lighten" target="_blank">Honko</a>; adapted for PokeMMO by <a href="https://github.com/suhleam" class="links-lighten" target="_blank">Suhleam</a>.
     <ul><li><a href="https://www.smogon.com/forums/threads/pok%C3%A9mon-showdown-damage-calculator.3593546/" class="links-lighten" target="_blank">Bug Reports</a></li>
     <li><a href="https://github.com/smogon/damage-calc" class="links-lighten" target="_blank">GitHub repository</a></li></ul>
 

@@ -1682,6 +1682,84 @@ const BW: {[name: string]: MoveData} = extend(true, {}, DPP, BW_PATCH);
 
 delete BW['Faint Attack'];
 
+const POKEMMO_PATCH: {[name: string]: DeepPartial<MoveData>} = {
+  'Air Cutter': {bp: 60},
+  'Assurance': {bp: 60},
+  'Aura Sphere': {bp: 80},
+  'Blizzard': {bp: 110},
+  'Bubble': {bp: 40},
+  'Chatter': {bp: 65},
+  'Crabhammer': {bp: 100},
+  'Draco Meteor': {bp: 130},
+  'Dragon Pulse': {bp: 85},
+  'Energy Ball': {bp: 90},
+  'Fell Stinger': {bp: 30},
+  'Fire Blast': {bp: 110},
+  'Fire Pledge': {bp: 80},
+  'Flamethrower': {bp: 90},
+  'Flying Press': {bp: 100},
+  'Frost Breath': {bp: 60},
+  'Fury Cutter': {bp: 40},
+  'Future Sight': {bp: 120},
+  'Heat Wave': {bp: 95},
+  'Hex': {bp: 65},
+  'Hidden Power': {bp: 60},
+  'Hidden Power Bug': {bp: 60},
+  'Hidden Power Dark': {bp: 60},
+  'Hidden Power Dragon': {bp: 60},
+  'Hidden Power Electric': {bp: 60},
+  'Hidden Power Fighting': {bp: 60},
+  'Hidden Power Fire': {bp: 60},
+  'Hidden Power Flying': {bp: 60},
+  'Hidden Power Ghost': {bp: 60},
+  'Hidden Power Grass': {bp: 60},
+  'Hidden Power Ground': {bp: 60},
+  'Hidden Power Ice': {bp: 60},
+  'Hidden Power Poison': {bp: 60},
+  'Hidden Power Psychic': {bp: 60},
+  'Hidden Power Rock': {bp: 60},
+  'Hidden Power Steel': {bp: 60},
+  'Hidden Power Water': {bp: 60},
+  'Hurricane': {bp: 110},
+  'Hydro Pump': {bp: 110},
+  'Ice Beam': {bp: 90},
+  'Incinerate': {bp: 60},
+  'Knock Off': {bp: 20},
+  'Leaf Storm': {bp: 130},
+  'Leech Life': {bp: 80},
+  'Lick': {bp: 30},
+  'Low Sweep': {bp: 65},
+  'Luster Purge': {bp: 95},
+  'Magma Storm': {bp: 100},
+  'Meteor Mash': {bp: 90},
+  'Mystical Fire': {bp: 75},
+  'Outrage': {bp: 90},
+  'Overheat': {bp: 130},
+  'Parabolic Charge': {bp: 65},
+  'Pin Missile': {bp: 25},
+  'Power Gem': {bp: 80},
+  'Rapid Spin': {bp: 50},
+  'Rock Tomb': {bp: 60},
+  'Skull Bash': {bp: 130},
+  'Smelling Salts': {bp: 70},
+  'Smog': {bp: 30},
+  'Snore': {bp: 40},
+  'Storm Throw': {bp: 60},
+  'Struggle Bug': {bp: 50},
+  'Sucker Punch': {bp: 70},
+  'Surf': {bp: 90},
+  'Synchronoise': {bp: 120},
+  'Tackle': {bp: 40},
+  'Techno Blast': {bp: 120},
+  'Thief': {bp: 60},
+  'Thunder': {bp: 110},
+  'Thunderbolt': {bp: 90},
+  'Vine Whip': {bp: 45},
+  'Wake-Up Slap': {bp: 70},
+  'Water Pledge': {bp: 80},
+};
+const BW_FINAL: {[name: string]: MoveData} = extend(true, {}, BW, POKEMMO_PATCH);
+
 const XY_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Ice Ball': {isBullet: true},
   'Knock Off': {bp: 65},
@@ -5463,7 +5541,7 @@ const CHAMPIONS: {[name: string]: MoveData} = extend(
 // @ts-expect-error readonly
 delete CHAMPIONS['Freeze-Dry'].secondaries;
 
-export const MOVES = [CHAMPIONS, RBY, GSC, ADV, DPP, BW, XY, SM, SS, SV];
+export const MOVES = [CHAMPIONS, RBY, GSC, ADV, DPP, BW_FINAL, XY, SM, SS, SV];
 
 export class Moves implements I.Moves {
   private readonly gen: I.GenerationNum;

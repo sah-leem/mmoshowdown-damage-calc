@@ -105,7 +105,7 @@ $("input:radio[name='format']").change(function () {
 	$(".format-specific").not("." + gameType.toLowerCase()).hide();
 });
 
-var defaultLevel = 100;
+var defaultLevel = 50;
 $("input:radio[name='defaultLevel']").change(function () {
 	defaultLevel = $("input:radio[name='defaultLevel']:checked").val();
 	$("#levelL1").val(defaultLevel);
@@ -366,8 +366,8 @@ function autosetWeather(ability, i) {
 			lastAutoWeather[i] = "Snow";
 			$("#snow").prop("checked", true);
 		} else {
-			lastAutoWeather[i] = "Hail";
-			$("#hail").prop("checked", true);
+			lastAutoWeather[i] = "Snow";
+			$("#snow").prop("checked", true);
 		}
 		break;
 	case "Desolate Land":
@@ -482,7 +482,7 @@ $(".move-selector").change(function () {
 					pokeObj.find(".hp .dvs").val(hpDV);
 				}
 				pokeObj.change();
-				moveGroupObj.children(".move-bp").val(gen >= 6 ? 60 : 70);
+				moveGroupObj.children(".move-bp").val(gen >= 5 ? 60 : 70);
 			}
 		} else {
 			moveGroupObj.children(".move-bp").val(actual.power);
@@ -1471,10 +1471,10 @@ var gen, genWasChanged, notation, pokedex, setdex, randdex, typeChart, moves, ab
 
 $(".gen").change(function () {
 	/*eslint-disable */
-	gen = ~~$(this).val() || 9;
+	gen = ~~$(this).val() || 5;
 	GENERATION = calc.Generations.get(gen);
 	var params = new URLSearchParams(window.location.search);
-	if (gen === 9) {
+	if (gen === 5) {
 		params.delete('gen');
 		params = '' + params;
 		if (window.history && window.history.replaceState) {
@@ -1517,17 +1517,16 @@ $(".gen").change(function () {
 	var itemOptions = getSelectOptions(items, true);
 	$("select.item").find("option").remove().end().append("<option value=\"\">(none)</option>" + itemOptions);
 
-	$(".set-selector").val(getFirstValidSetOption().id);
-	$(".set-selector").change();
+	var _fvso = getFirstValidSetOption();
+	if (_fvso && _fvso.id) { $(".set-selector").val(_fvso.id); $(".set-selector").change(); }
 });
 
 function getFirstValidSetOption() {
 	var sets = getSetOptions();
-	// NB: The first set is never valid, so we start searching after it.
 	for (var i = 1; i < sets.length; i++) {
-		if (sets[i].id && sets[i].id.indexOf('(Blank Set)') === -1) return sets[i];
+		if (sets[i].id) return sets[i];
 	}
-	return undefined;
+	return sets[0] || {id: ''};
 }
 
 $(".notation").change(function () {
@@ -1817,7 +1816,7 @@ function loadDefaultLists() {
 			});
 		},
 		initSelection: function (element, callback) {
-			callback(getFirstValidSetOption());
+			var _fvso2 = getFirstValidSetOption(); if (_fvso2) callback(_fvso2);
 		}
 	});
 }
@@ -1866,7 +1865,7 @@ function loadCustomList(id) {
 
 $(document).ready(function () {
 	var params = new URLSearchParams(window.location.search);
-	var g = GENERATION[params.get('gen')] || 9;
+	var g = GENERATION[params.get('gen')] || 5;
 	if ($("#champions").prop("checked")) {
 		/* eslint-disable */
 		g = 0;
@@ -1893,8 +1892,8 @@ $(document).ready(function () {
 		var itemOptions = getSelectOptions(items, true);
 		$("select.item").find("option").remove().end().append("<option value=\"\">(none)</option>" + itemOptions);
 
-		$(".set-selector").val(getFirstValidSetOption().id);
-		$(".set-selector").change();
+		var _fvso = getFirstValidSetOption();
+		if (_fvso && _fvso.id) { $(".set-selector").val(_fvso.id); $(".set-selector").change(); }
 	}
 	$("#gen" + g).prop("checked", true);
 	$("#gen" + g).change();
@@ -1902,8 +1901,8 @@ $(document).ready(function () {
 	$("#percentage").change();
 	$("#singles-format").prop("checked", true);
 	$("#singles-format").change();
-	$("#default-level-100").prop("checked", true);
-	$("#default-level-100").change();
+	$("#default-level-50").prop("checked", true);
+	$("#default-level-50").change();
 	loadDefaultLists();
 	$(".move-selector").select2({
 		dropdownAutoWidth: true,
@@ -1912,8 +1911,8 @@ $(document).ready(function () {
 			return text.toUpperCase().indexOf(term.toUpperCase()) === 0 || text.toUpperCase().indexOf(" " + term.toUpperCase()) >= 0;
 		}
 	});
-	$(".set-selector").val(getFirstValidSetOption().id);
-	$(".set-selector").change();
+	var _fvso = getFirstValidSetOption();
+	if (_fvso && _fvso.id) { $(".set-selector").val(_fvso.id); $(".set-selector").change(); }
 	$(".terrain-trigger").bind("change keyup", getTerrainEffects);
 });
 
