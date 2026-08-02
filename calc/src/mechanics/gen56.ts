@@ -335,7 +335,7 @@ export function calculateBWXY(
     attacker.hasStatus('brn') &&
     move.category === 'Physical' &&
     !attacker.hasAbility('Guts') &&
-    !(move.named('Facade') && gen.num === 6);
+    !move.named('Facade');
   desc.isBurned = applyBurn;
 
   const finalMods = calculateFinalModsBWXY(
@@ -722,7 +722,7 @@ export function calculateBPModsBWXY(
     bpMods.push(4915);
     desc.attackerItem = attacker.item;
   } else if (attacker.hasItem(`${move.type} Gem`)) {
-    bpMods.push(gen.num > 5 ? 5325 : 6144);
+    bpMods.push(5325);
     desc.attackerItem = attacker.item;
   }
 
@@ -1066,7 +1066,7 @@ function calculateBaseDamageBWXY(
   }
 
   if (isCritical) {
-    baseDamage = Math.floor(OF32(baseDamage * (gen.num > 5 ? 1.5 : 2)));
+    baseDamage = Math.floor(OF32(baseDamage * (1.5)));
     desc.isCritical = isCritical;
   }
 
@@ -1087,10 +1087,10 @@ function calculateFinalModsBWXY(
   const finalMods = [];
 
   if (field.defenderSide.isReflect && move.category === 'Physical' && !isCritical) {
-    finalMods.push(field.gameType !== 'Singles' ? (gen.num > 5 ? 2732 : 2703) : 2048);
+    finalMods.push(field.gameType !== 'Singles' ? (2732) : 2048);
     desc.isReflect = true;
   } else if (field.defenderSide.isLightScreen && move.category === 'Special' && !isCritical) {
-    finalMods.push(field.gameType !== 'Singles' ? (gen.num > 5 ? 2732 : 2703) : 2048);
+    finalMods.push(field.gameType !== 'Singles' ? (2732) : 2048);
     desc.isLightScreen = true;
   }
 

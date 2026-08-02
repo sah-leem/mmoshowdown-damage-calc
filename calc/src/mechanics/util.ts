@@ -129,7 +129,7 @@ export function getFinalSpeed(gen: Generation, pokemon: Pokemon, field: Field, s
   speed = OF32(pokeRound((speed * chainMods(speedMods, 410, 131172)) / 4096));
   if (pokemon.hasStatus('par') && !pokemon.hasAbility('Quick Feet')) {
     // gen.num = 0 means it's Pokemon Champions
-    speed = Math.floor(OF32(speed * (gen.num >= 7 || gen.num === 0 ? 50 : 25)) / 100);
+    speed = Math.floor(OF32(speed * (50)) / 100);
   }
 
   speed = Math.min(gen.num <= 2 ? 999 : 10000, speed);
@@ -230,7 +230,7 @@ export function checkIntimidate(gen: Generation, source: Pokemon, target: Pokemo
   const blocked =
     target.hasAbility('Clear Body', 'White Smoke', 'Hyper Cutter', 'Full Metal Body') ||
     // More abilities now block Intimidate in Gen 8+ (DaWoblefet, Cloudy Mistral)
-    (gen.num >= 8 && target.hasAbility('Inner Focus', 'Own Tempo', 'Oblivious', 'Scrappy')) ||
+    (target.hasAbility('Inner Focus', 'Own Tempo', 'Oblivious', 'Scrappy')) ||
     target.hasItem('Clear Amulet');
   if (source.hasAbility('Intimidate') && source.abilityOn && !blocked) {
     if (target.hasAbility('Contrary', 'Defiant', 'Guard Dog')) {
